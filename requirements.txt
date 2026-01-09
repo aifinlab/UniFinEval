@@ -1,0 +1,14 @@
+# Core dependencies
+openai>=1.0.0
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+
+# Image processing
+Pillow>=9.0.0
+
+# Data processing (for Excel support)
+pandas>=1.5.0
+openpyxl>=3.0.0
+
+# Standard library dependencies (usually included, listed for reference)
+# json, os, sys, pathlib, datetime, typing, threading, concurrent.futures, logging, re, base64, io, argparse

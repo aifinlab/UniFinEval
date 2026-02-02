@@ -27,7 +27,7 @@
 **UniFinEval** 是首个专为**高信息密度（High-Information-Density, HID）**金融环境设计的统一多模态评测基准，旨在解决现有评测基准与真实金融业务脱节的问题。在真实的金融分析场景中，分析师不仅需要处理海量的研究报告和复杂的图表数据，还需要结合视频资讯进行连续的逻辑推导。为此，UniFinEval 引入了包含**文本、图像（高密度图表/文档）和视频**的全模态输入，构建了一个由 **3,767 个高质量问答对** 组成的数据集。所有数据均由持有 CFA/CPA 证书的金融专家手工构建并进行双盲交叉验证，确保了极高的业务专业性和逻辑严谨性 。
 
 <div align="center">
-  <img src="Images/compare.png" width="700px" height="340px"/>
+  <img src="Images/compare.png" width="700px" height="540px"/>
   <br />
   <br /></div
             
@@ -73,7 +73,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 * **示例说明:**
  *模型需综合宏观经济视频分析和多份行业研报的文字描述，推断在“大周期”模型下，某一核心指标（如金融中心地位）在顶峰后的衰退特征。*
  <div align="center">
-  <img src="Images/Scenarios-3.png" width="700px" height="340px"/>
+  <img src="Images/Scecnarios-3.png" width="700px" height="340px"/>
   <br />
   <br /></div>
 
@@ -84,7 +84,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 * **示例说明:**
 *结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。*
  <div align="center">
-  <img src="Images/Scenarios-4.png" width="700px" height="340px"/>
+  <img src="Images/Scenarios-4.jpg" width="700px" height="340px"/>
   <br />
   <br /></div>
 
@@ -95,7 +95,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 * **示例说明:**
 *基于对市场波动背景（图表）和央行资金投放政策（文本）的综合理解，量化计算资金投放倍数，并据此给出具体的“高配”或“低配”操作建议。*
  <div align="center">
-  <img src="Images/Scenarios-5.png" width="700px" height="340px"/>
+  <img src="Images/Scenarios-5.jpg" width="700px" height="340px"/>
   <br />
   <br /></div>
 

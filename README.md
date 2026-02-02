@@ -1,47 +1,108 @@
+# UniFinEval: 面向文本、图像和视频的金融多模态模型统一评测基准
+
 <div align="center">
 
-# UniFinEval
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)
+[![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://anonymous.4open.science/r/anonym4B75)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey)](LICENSE)
 
-**A Comprehensive Evaluation Framework for Financial Vision-Language Models**
-
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
-
-*A unified evaluation framework for assessing financial vision-language models across multiple user profiles and diverse question types*
-
-**[English](#english)** | **[中文 (中文版 README)](README_CN.md)**
+**[English](README.md) | [简体中文](README_zh-CN.md)**
 
 </div>
 
 ---
 
-<a id="english"></a>
-## 📖 Overview
+## 目录
 
-**UniFinEval** is a comprehensive evaluation framework designed specifically for financial vision-language models. It supports multi-user profile evaluation, multi-round dialogue assessment, and provides detailed analysis capabilities for various financial question types.
-
-### Key Features
-
-- 🎯 **Multi-User Profile Evaluation**: Supports evaluation across different user profiles (beginner, retail investor, expert, expert with CoT)
-- 🔄 **Multi-Round Dialogue Support**: Handles complex multi-turn financial conversations
-- 📊 **Comprehensive Statistics**: Detailed accuracy analysis by model, profile, category, and difficulty
-- 🖼️ **Multi-Modal Support**: Seamlessly handles both text and image inputs
-- ⚡ **High Performance**: Parallel evaluation with configurable concurrency
-- 💾 **Resume Capability**: Supports checkpoint resumption for long-running evaluations
-- 📝 **Detailed Logging**: Comprehensive logging system for debugging and analysis
+- [1. 总览介绍 (Overview)](#1-总览介绍-overview)
+- [2. 五大金融场景 (Five Financial Scenarios)](#2-五大金融场景-five-financial-scenarios)
+- [3. 评测结果 (Evaluation Results)](#3-评测结果-evaluation-results)
+- [4. 使用指南 (Usage)](#4-使用指南-usage)
+- [5. 引用 (Citation)](#5-引用-citation)
+- [6. 联系方式 (Contact)](#6-联系方式-contact)
 
 ---
 
-## 🔗 Links
+## 🏆 总览介绍 (Overview)
 
-- **📄 Paper**: [arXiv:XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX) | [PDF](UniFinEval____arXiv.pdf)
-- **📦 Dataset**: [Dataset Link](https://github.com/your-repo/dataset) | [HuggingFace](https://huggingface.co/datasets/your-dataset)
-- **💻 Code**: [GitHub Repository](https://github.com/your-repo/unifineval)
+**UniFinEval** 是首个专为**高信息密度（High-Information-Density, HID）**金融环境设计的统一多模态评测基准，旨在解决现有评测基准与真实金融业务脱节的问题。在真实的金融分析场景中，分析师不仅需要处理海量的研究报告和复杂的图表数据，还需要结合视频资讯进行连续的逻辑推导。为此，UniFinEval 引入了包含**文本、图像（高密度图表/文档）和视频**的全模态输入，构建了一个由 **3,767 个高质量问答对** 组成的数据集。所有数据均由持有 CFA/CPA 证书的金融专家手工构建并进行双盲交叉验证，确保了极高的业务专业性和逻辑严谨性 。
+
+为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上做出了重要创新。除了标准的**多模态融合**支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了**环境扰动模拟（Environmental Perturbation）**机制。这意味着模型需要应对包括**污渍遮挡 (Stain)**、**透视形变 (Perspective)** 以及**折痕与弯曲 (Crease & Curvature)** 在内的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理（Multi-hop Reasoning），全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力。
 
 ---
 
-## 🚀 Quick Start
+## 📈 五大金融场景 (Five Financial Scenarios)
+
+UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到高阶决策制定的五个层级化场景。每个场景都设计了特定的难点，以全面评估 MLLMs 在复杂金融环境中的适应性。
+
+### 1. 财务报表审计 (Financial Statement Auditing, FSA)
+* **场景深度解析:**
+    [cite_start]这是金融分析的基础入口，核心目标是在高密度的视觉环境中验证财务信息的准确性与一致性。与传统数据集使用简化图表不同，FSA 场景保留了真实研报的复杂排版、页眉页脚及冗余干扰信息，以此模拟真实的审计环境 [cite: 405-406]。
+    * **考察能力:** 模型不仅需要进行单点的事实检索，还需要跨越多个页面进行多跳推理（Multi-hop Reasoning），在含有视觉噪声的文档中精准定位并核对关键财务指标，这直接考验了模型在复杂布局下的细粒度感知能力。
+* **示例说明:**
+    > ![FSA Example](assets/fsa_example.png)
+    > *在此示例中，模型需要阅读长篇文本并结合复杂的趋势图，定位特定年份“房地产投资增速”进入两位数负增长的具体月份，并进行跨模态的数据验证。*
+
+### 2. 公司基本面推理 (Company Fundamental Reasoning, CFR)
+* **场景深度解析:**
+    在完成基础审计后，分析工作进入对企业经营状况和内在价值的深度剖析阶段。该场景侧重于信息对齐与语义同步，模型需要处理来自不同来源（如财报与第三方研报）的异构数据。
+    * [cite_start]**考察能力:** 这里的图表不再直接给出答案，而是通过趋势或相对变化传达隐含信息。模型必须从多源文本和图表中提取分散的参数，执行严谨的金融公式计算（如推导 EBITDA 利润率或营收复合增长率），从而区分单纯的信息检索能力与深度的金融逻辑推理能力 [cite: 410-411, 1430]。
+* **示例说明:**
+    > ![CFR Example](assets/cfr_example.png)
+    > *模型需结合视频中披露的市场动态和财报图表中的具体数值，通过多步计算推导出腾讯公司特定季度的营收增速与预测值的差异。*
+
+### 3. 行业趋势洞察 (Industry Trend Insights, ITI)
+* **场景深度解析:**
+    分析视角从单一企业上升至行业维度，关注跨企业对比与跨周期分析。该场景模拟了分析师如何从碎片化的信息中拼凑出行业全貌，数据源涵盖多期财报、行业研报及宏观经济数据。
+    * [cite_start]**考察能力:** 任务要求模型不仅能理解单一图表，还要能综合多份文档中的异构数据，识别行业发展的底层逻辑（如周期性波动、竞争格局变化）。模型需要展现出强大的跨文档信息聚合能力和长程逻辑归纳能力 [cite: 415-416, 1535]。
+* **示例说明:**
+    > ![ITI Example](assets/iti_example.png)
+    > *模型需综合宏观经济视频分析和多份行业研报的文字描述，推断在“大周期”模型下，某一核心指标（如金融中心地位）在顶峰后的衰退特征。*
+
+### 4. 金融风险感知 (Financial Risk Sensing, FRS)
+* **场景深度解析:**
+    此场景聚焦于多维度识别潜在的下行风险信号，是保障投资安全的关键环节。FRS 是 UniFinEval 中引入动态视频模态的核心场景，因为现实中的风险信号往往隐藏在时变的、非结构化的新闻资讯或分析视频中。
+    * [cite_start]**考察能力:** 模型需要将视频中专家的动态观点与静态报告中的量化数据进行显式对齐（Alignment）。这要求模型具备处理时序信息的能力，能够捕捉市场情绪的变化，并判断这些非结构化线索如何影响具体的财务预测（如油价波动、营收下滑风险） [cite: 521-523, 1541]。
+* **示例说明:**
+    > ![FRS Example](assets/frs_example.png)
+    > *结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。*
+
+### 5. 资产配置分析 (Asset Allocation Analysis, AAA)
+* **场景深度解析:**
+    [cite_start]作为金融业务流的终极决策阶段，AAA 场景要求综合前序所有阶段的分析成果，在多重现实约束（如政策限制、风险偏好）下制定可执行的策略 [cite: 524-525, 1543]。这是本基准中输入结构最复杂、信息密度最高的任务。
+    * [cite_start]**考察能力:** 任务通常采用多轮对话形式，要求模型在交互中不断整合新信息，平衡收益与风险，并在高维度的信息空间中保持决策逻辑的一致性。这直接评估了 MLLMs 是否具备辅助专家进行核心投资决策的潜力 [cite: 527-528, 1545]。
+* **示例说明:**
+    > ![AAA Example](assets/aaa_example.png)
+    > *基于对市场波动背景（图表）和央行资金投放政策（文本）的综合理解，量化计算资金投放倍数，并据此给出具体的“高配”或“低配”操作建议。*
+
+---
+
+## 📊 评测结果 (Evaluation Results)
+### 结果分析
+我们选取了 10 个主流 MLLMs 进行评测，包括闭源模型（如 Gemini-3-pro-preview, GPT-5.1）和开源模型（如 Qwen3-VL, InternVL3.5）。实验结果表明，尽管如Gemini-3-pro-preview这样的顶尖模型在总分上取得了 73.8% 的准确率，但与人类专家（91.3%）相比仍存在显著差距，这一差距在不同任务难度上表现出明显的梯度衰减特征：
+
+1.  **感知与决策的断层：** 模型在信息感知类任务（如 FSA 和 CFR）上表现较好，能够准确提取图表和文本中的关键信息，与人类差距较小。然而，随着任务复杂度提升至高阶决策（如 AAA），所有模型的性能均出现大幅下滑。在资产配置分析任务中，Gemini-3-pro-preview 仅获得 61.1% 的准确率，远低于专家的 85.2% 。
+2.  **长链路推理的挑战：** 结果揭示了模型在处理高信息密度和多模态融合时的局限性。模型在需要维持长期逻辑一致性和处理复杂约束条件的场景下（如 ITI 和 AAA），难以构建稳定的语义映射，导致决策逻辑的崩塌。
+3.  **视频模态的短板：** 在引入视频信息的 FRS（金融风险感知）任务中，大多数模型未能实现性能突破，暴露了当前 MLLMs 在跨时间维度的逻辑建模能力上仍有不足。
+
+| Model | FSA<br>Zero-Shot | FSA<br>CoT | CFR<br>Zero-Shot | CFR<br>CoT | ITI<br>Zero-Shot | ITI<br>CoT | FRS<br>Zero-Shot | FRS<br>CoT | AAA<br>Zero-Shot | AAA<br>CoT | Average<br>Zero-Shot | Average<br>CoT |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Gemini-3-pro-preview** | **83.5** | **83.8** | **82.2** | **82.8** | **73.3** | **74.7** | **68.8** | **70.1** | **61.1** | **55.4** | **73.8** | **73.4** |
+| Qwen3-VL-235B-A22B-Thinking | <u>80.2</u> | <u>81.3</u> | <u>78.9</u> | <u>74.9</u> | <u>69.4</u> | 64.6 | <u>62.9</u> | <u>62.7</u> | 43.3 | <u>50.3</u> | <u>66.9</u> | <u>66.8</u> |
+| Qwen3-VL-32B-Thinking | 75.1 | 76.2 | 71.0 | 70.3 | 65.6 | <u>65.2</u> | 54.8 | 56.6 | 40.8 | 43.3 | 61.5 | 62.3 |
+| GPT-5.1 | 76.9 | 77.8 | 67.1 | 65.0 | 65.8 | 60.4 | 50.0 | 54.1 | <u>47.8</u> | 48.4 | 61.5 | 61.1 |
+| Claude-Sonnet-4.5 | 70.8 | 71.9 | 65.4 | 68.2 | 61.7 | 61.4 | 50.0 | 50.6 | 40.8 | 42.0 | 57.7 | 58.6 |
+| InternVL3.5-241B-A28B | 69.0 | 70.6 | 66.2 | 68.7 | 63.8 | 63.8 | 37.1 | 36.2 | 38.2 | 40.1 | 54.9 | 55.9 |
+| MiniCPM-V-4.5 | 65.9 | 66.2 | 62.3 | 64.1 | 53.2 | 57.9 | 30.6 | 38.0 | 33.1 | 29.9 | 49.0 | 51.2 |
+| InternVL3.5-30B-A3B | 61.5 | 61.7 | 64.7 | 59.9 | 50.0 | 52.7 | 33.9 | 35.8 | 28.0 | 34.4 | 47.6 | 49.0 |
+| Grok-4.1-Fast-Reasoning | 50.3 | 52.5 | 43.1 | 44.1 | 32.5 | 34.9 | 16.1 | 19.3 | 17.8 | 22.3 | 32.0 | 34.6 |
+| Llama-3.2-11B-Vision | 22.2 | 23.1 | 20.9 | 23.7 | 19.0 | 21.4 | 14.1 | 15.7 | 11.5 | 10.8 | 17.5 | 18.9 |
+| **Expert** | 97.5 | | 95.3 | | 90.1 | | 88.5 | | 85.2 | | 91.3 | |
+
+---
+
+
+## 🚀 使用指南
 
 ### Prerequisites
 
@@ -130,26 +191,6 @@ MODEL_DEFINITIONS = {
 }
 ```
 
----
-
-## 📊 User Profiles
-
-The framework supports four user profiles for evaluation:
-
-- **beginner**: Financial novice with basic understanding
-- **retail**: Retail investor with moderate financial knowledge
-- **expert**: Financial expert with deep domain knowledge
-- **expert_cot**: Expert using chain-of-thought reasoning
-
-You can specify profiles using the `--profiles` argument:
-
-```bash
-python -m evaluate_py.main \
-    --input_file ./data/dataset.json \
-    --profiles beginner retail expert
-```
-
----
 
 ## 📁 Project Structure
 
@@ -310,32 +351,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 5. Open a Pull Request
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- Thanks to all contributors and users of this framework
-- Special thanks to the open-source community for inspiration and tools
-
----
-
-## 📧 Contact
-
-For questions, issues, or suggestions:
-- Open an issue on [GitHub](https://github.com/your-repo/unifineval/issues)
-- Email: your-email@example.com
-
----
-
-<div align="center">
-
-**Made with ❤️ for the Financial AI Research Community**
-
-[⬆ Back to Top](#unifineval)
-
-</div>

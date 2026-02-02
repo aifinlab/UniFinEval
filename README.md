@@ -30,7 +30,8 @@
   <img src="Images/compare.png" width="500px" height="340px"/>
   <br />
   <br /></div
-            
+
+        
 为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上做出了重要创新。除了标准的**多模态融合**支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了**环境扰动模拟（Environmental Perturbation）**机制。这意味着模型需要应对包括**污渍遮挡 (Stain)**、**透视形变 (Perspective)** 以及**折痕与弯曲 (Crease & Curvature)** 在内的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理（Multi-hop Reasoning），全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力。
 
  <div align="center">
@@ -54,6 +55,14 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
   <img src="Images/Scenarios-1.png" width="700px" height="340px"/>
   <br />
   <br /></div>
+
+```
+文本：工业生产稳中向好，计算机通信动能较强腾景全口径数据显示，工业经济运行相对平稳，1-10月工业增加值不变价累计同比增速为3.8\%,其中4月份受到疫情冲击影响，增速落入负向区间(-3.9\%),而后触底反弹、保持微幅上行态势。其中，房地产投资、出口交货值与工业增加值同比增速走势契合度较高，但在2021年5月出现K形分化走势，今年K形分化程度进一步加深，具体表现在房地产投资增速自去年7月份落入负向区间后，不断向下走阔， 持续两位数的负增长低迷状态，阻碍工业修复。
+问题1：依据文本中关于房地产投资增速的描述，其进入持续两位数负增长区间的起始月份是哪个月？
+答案：2021年7月
+问题2：结合确定的起始月份和图5中显示的最新数据点，计算房地产投资增速处于两位数负增长状态的总月份数。
+答案：16
+```
   
 ### 2. 公司基本面推理
 * **场景深度解析:**
@@ -66,6 +75,13 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
   <br />
   <br /></div>
 
+```
+问题：世界上规模最快突破两百亿美元的主动管理型ETF的股息与美盈森的差值是多少？
+答案：-6.19%
+问题2：结合确定的起始月份和图5中显示的最新数据点，计算房地产投资增速处于两位数负增长状态的总月份数。
+答案：16
+```
+  
 ### 3. 行业趋势洞察 (Industry Trend Insights, ITI)
 * **场景深度解析:**
     分析视角从单一企业上升至行业维度，关注跨企业对比与跨周期分析。该场景模拟了分析师如何从碎片化的信息中拼凑出行业全貌，数据源涵盖多期财报、行业研报及宏观经济数据。
@@ -77,6 +93,12 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
   <br />
   <br /></div>
 
+```
+文本：As I described in my book Principles for Dealing with the Changing World Order, I automated my way looking at the cause effect relationships that are driving both improvements in and worsenings of countries’ conditions so that data is fed into a computer that analyzes it and writes a summary of the current conditions and the long-term prospects for each country.  ... ... The table below shows our aggregate country power gauge and the major drivers, as well as the rank of each measure of power across 24 major countries today and the trajectory over the past twenty years. To understand a country, we start by looking at the big cycles , as well as measures of power that both reflect and drive the rise and fall of a country. While we refer to these factors individually, they are not separate; they interact with and reinforce one another to move a country along its cycle. For the United States, the big cycles look mostly unfavorable. The United States is in an unfavorable position in its economic and financial cycles, with a high debt burden and relatively low expected real growth over the next 10 years (1.3\% per year). The United States has significantly more foreign debts than foreign assets (net IIP is -68\% of GDP). Non-financial debt levels are high (274\% of GDP), and government debt levels are high (127\% of GDP). The bulk (99\%) of these debts are in its own currency, which mitigates its debt risks. The ability to use interest rate cuts to stimulate the economy is low (short rates at 0.1\%), and the country is already printing money to monetize debt. That said, being the world’s leading reserve currency is a large benefit to the US. If this were to change, it would significantly weaken the US position. Internal disorder is a high risk. Wealth, income, and values gaps are large (relative to countries of similar per capita income levels). Regarding Inequality—the top 1\% and top 10\% in the United States capture 19\% and 45\% of income (respectively the 8th and 11th highest share across major countries). ... ..., Half of the measure captures the absolute quantity of educated people at various levels and about half is placed on quality such as higher education rankings, test scores, and average years of education. The US ranks highest in this gauge (driven by strong absolute and relative measures of higher education), with China close behind (due to its large number of educated people). Financial Center:  This gauge measures the level of development and sizes of a country’s financial markets and financial center. We look at absolute measures of transaction shares and market capitalizations, as well as external indices of financial center cities. The US remains the top-ranked power in this metric by a significant margin (driven primarily by its very large share of world equity and debt mar -kets), with China and Europe ranking second and third, respectively. Reserve Currency Status: This gauge measures the extent to which a country’s currency operates as a global reserve currency. We measure reserve currency status by the share of transactions, debts, and central bank reserves that are denominated or held in a country’s currency. Similar to financial center status, the US remains the top-ranked power in this metric by a significant margin, with Europe and Japan ranking second and third, respectively. ... ..., In case it is helpful or interesting to you, you can review those scores below.33 In a few cases where there were no quality measures, I had to create quality measures by adjusting the quantity for a country’s population, turning it into a per capita measure. We did not give reserve currency status scores to the countries that share the euro, which is why those measures are displayed as dashes. 4 Because the notion of competitiveness is inherently relative, we only show the total score for this measure.
+问题：Synthesizing the analytical logic regarding the 'Big Cycle' and the 'Eight Major Strengths' in the text, as well as the average evolutionary trends of the 'Eight Major Strengths' for all empires before and after their respective peaks as shown in Figure 5, please infer: After an empire's power reaches its peak, which 'strength' indicator declines the fastest (i.e., requires the shortest time to drop from its peak to the 0.2 level)? Please substantiate your argument by combining the trend lines in the video with the implications in the text regarding the vulnerability of 'financial center' status.
+答案：Financial Center
+```
+  
 ### 4. 金融风险感知 (Financial Risk Sensing, FRS)
 * **场景深度解析:**
     此场景聚焦于多维度识别潜在的下行风险信号，是保障投资安全的关键环节。FRS 是 UniFinEval 中引入动态视频模态的核心场景，因为现实中的风险信号往往隐藏在时变的、非结构化的新闻资讯或分析视频中。
@@ -88,6 +110,11 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
   <br />
   <br /></div>
 
+```
+问题：结合OPEC+ 4月份实际减产数据、5月到年底的计划减产总量，以及EIA对全球经济情绪的评估，分析EIA下调2023年WTI原油平均价格预测的核心原因，并指出该原因如何导致OPEC+减产对价格的支撑作用被削弱。
+答案：市场对全球经济疲软、通胀和银行业动荡的情绪超过了对OPEC+减产的担忧；经济担忧抵消了减产效果，使价格预期下调
+```
+  
 ### 5. 资产配置分析 (Asset Allocation Analysis, AAA)
 * **场景深度解析:**
     作为金融业务流的终极决策阶段，AAA 场景要求综合前序所有阶段的分析成果，在多重现实约束（如政策限制、风险偏好）下制定可执行的策略。这是本基准中输入结构最复杂、信息密度最高的任务。
@@ -99,6 +126,11 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
   <br />
   <br /></div>
 
+```
+问题：基于文字说明中'随后两个交易日内保持日均1000亿元左右的投放规模'的表述，以及图表25所反映的2022年11月市场波动背景，计算从操作当日到后续两个交易日的总投放规模相对于当日净投放额的倍数（保留两位小数）
+答案：1.39
+```
+  
 ---
 
 ## 📊 评测结果 <a name="评测结果"></a> 

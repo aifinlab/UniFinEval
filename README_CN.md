@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Paper](https://arxiv.org/abs/2601.22162)
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)
 [![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://anonymous.4open.science/r/anonym4B75)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey)](LICENSE)
 
@@ -351,4 +351,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 5. Open a Pull Request
 
 ---
+
 

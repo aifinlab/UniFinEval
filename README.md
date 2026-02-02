@@ -27,14 +27,14 @@
 **UniFinEval** 是首个专为**高信息密度（High-Information-Density, HID）**金融环境设计的统一多模态评测基准，旨在解决现有评测基准与真实金融业务脱节的问题。在真实的金融分析场景中，分析师不仅需要处理海量的研究报告和复杂的图表数据，还需要结合视频资讯进行连续的逻辑推导。为此，UniFinEval 引入了包含**文本、图像（高密度图表/文档）和视频**的全模态输入，构建了一个由 **3,767 个高质量问答对** 组成的数据集。所有数据均由持有 CFA/CPA 证书的金融专家手工构建并进行双盲交叉验证，确保了极高的业务专业性和逻辑严谨性 。
 
 <div align="center">
-  <img src="Images/compare.png" width="700px" height="540px"/>
+  <img src="Images/compare.png" width="500px" height="340px"/>
   <br />
   <br /></div
             
 为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上做出了重要创新。除了标准的**多模态融合**支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了**环境扰动模拟（Environmental Perturbation）**机制。这意味着模型需要应对包括**污渍遮挡 (Stain)**、**透视形变 (Perspective)** 以及**折痕与弯曲 (Crease & Curvature)** 在内的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理（Multi-hop Reasoning），全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力。
 
  <div align="center">
-  <img src="Images/frame.png" width="700px" height="340px"/>
+  <img src="Images/frame.png" width="900px" height="540px"/>
   <br />
   <br /></div>
 

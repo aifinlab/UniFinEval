@@ -106,7 +106,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 * **示例说明:**
 *结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。*
  <div align="center">
-  <img src="Images/Scenarios-4.jpg" width="700px" height="340px"/>
+  <img src="Images/Scenarios-4.jpg" width="540px" height="900px"/>
   <br />
   <br /></div>
 

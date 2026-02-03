@@ -3,7 +3,7 @@
 
 <!-- 链接和数据 -->
 [![📃Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)
-[![📂Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://anonymous.4open.science/r/anonym4B75)
+[![📂Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://github.com/aifinlab/UniFinEval/tree/main/data)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- 语言切换链接 -->

@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>UniFinEval: 面向文本、图像和视频的金融多模态模型统一评测基准</h1>
+    <h1>UniFinEval: owards Unified Evaluation of Financial Multimodal Models across Text, Images and Videos</h1>
 
 <!-- 链接和数据 -->
 [![📃Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)

@@ -421,7 +421,7 @@ python -m pytest tests/
 
 ## 📝 引用 <a name="引用"></a>
 
-如果您在研究中使用了FinGAIA，请引用我们的论文：
+如果您在研究中使用了UniFinEval，请引用我们的论文：
 
 ```
 Coming Soon
@@ -429,4 +429,5 @@ Coming Soon
 ```
 
 ---
+
 

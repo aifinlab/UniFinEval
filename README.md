@@ -61,9 +61,9 @@ Based on real financial business processes, UniFinEval constructs five hierarchi
 | **Total (UniFinEval)** | **3767** |
 
 ### 1. Financial Statement Auditing (FSA)
-Scenario Deep Dive: This is the entry point for financial analysis. The core objective is to verify the accuracy and consistency of financial information within a high-density visual environment. Unlike traditional datasets that use simplified charts, the FSA scenario retains the complex layout, headers, footers, and redundant interference information of real research reports to simulate a genuine auditing environment.
-Capabilities Tested: The model needs to perform not only single-point fact retrieval but also Multi-hop Reasoning across multiple pages. It must precisely locate and verify key financial indicators in documents containing visual noise, directly testing the model's fine-grained perception capabilities under complex layouts.
-Example: In this example, the model needs to read a long text and combine it with a complex trend chart to locate the specific month in a given year when the "real estate investment growth rate" entered double-digit negative growth, and then perform cross-modal data verification.
+1. Scenario Deep Dive: This is the entry point for financial analysis. The core objective is to verify the accuracy and consistency of financial information within a high-density visual environment. Unlike traditional datasets that use simplified charts, the FSA scenario retains the complex layout, headers, footers, and redundant interference information of real research reports to simulate a genuine auditing environment.
+2. Capabilities Tested: The model needs to perform not only single-point fact retrieval but also Multi-hop Reasoning across multiple pages. It must precisely locate and verify key financial indicators in documents containing visual noise, directly testing the model's fine-grained perception capabilities under complex layouts.
+3. Example: In this example, the model needs to read a long text and combine it with a complex trend chart to locate the specific month in a given year when the "real estate investment growth rate" entered double-digit negative growth, and then perform cross-modal data verification.
  <div align="center">
   <img src="Images/Scenarios-1.png" width="800px" height="540px"/>
   <br />
@@ -78,9 +78,9 @@ Example: In this example, the model needs to read a long text and combine it wit
 ```
   
 ### 2. Company Fundamental Reasoning (CFR)
-Scenario Deep Dive: After completing the basic audit, the analysis moves to a deep dissection of the enterprise's operating status and intrinsic value. This scenario focuses on information alignment and semantic synchronization, requiring the model to handle heterogeneous data from different sources (e.g., financial reports vs. third-party research reports).
-Capabilities Tested: The charts here no longer provide direct answers but convey implicit information through trends or relative changes. The model must extract scattered parameters from multi-source texts and charts to execute rigorous financial formula calculations (such as deriving EBITDA margins or CAGR), thereby distinguishing simple information retrieval capabilities from deep financial logical reasoning capabilities.
-Example: The model needs to combine market dynamics disclosed in a video with specific figures in financial report charts to derive the difference between Tencent's revenue growth rate and the forecast value for a specific quarter through multi-step calculation.
+1. Scenario Deep Dive: After completing the basic audit, the analysis moves to a deep dissection of the enterprise's operating status and intrinsic value. This scenario focuses on information alignment and semantic synchronization, requiring the model to handle heterogeneous data from different sources (e.g., financial reports vs. third-party research reports).
+2. Capabilities Tested: The charts here no longer provide direct answers but convey implicit information through trends or relative changes. The model must extract scattered parameters from multi-source texts and charts to execute rigorous financial formula calculations (such as deriving EBITDA margins or CAGR), thereby distinguishing simple information retrieval capabilities from deep financial logical reasoning capabilities.
+3. Example: The model needs to combine market dynamics disclosed in a video with specific figures in financial report charts to derive the difference between Tencent's revenue growth rate and the forecast value for a specific quarter through multi-step calculation.
  <div align="center">
   <img src="Images/Scenarios-2.png" width="800px" height="540px"/>
   <br />
@@ -94,9 +94,9 @@ Example: The model needs to combine market dynamics disclosed in a video with sp
 ```
   
 ### 3. Industry Trend Insights (ITI)
-Scenario Deep Dive: The analytical perspective rises from a single enterprise to the industry dimension, focusing on cross-enterprise comparison and cross-cycle analysis. This scenario simulates how analysts piece together a complete industry picture from fragmented information, with data sources covering multiple periods of financial reports, industry research reports, and macroeconomic data.
-Capabilities Tested: The task requires the model to not only understand single charts but also synthesize heterogeneous data from multiple documents to identify the underlying logic of industry development (such as cyclical fluctuations and changes in the competitive landscape). The model needs to demonstrate strong cross-document information aggregation capabilities and long-range logical induction capabilities.
-Example: The model needs to synthesize macroeconomic video analysis and text descriptions from multiple industry reports to infer the recession characteristics of a core indicator (such as financial center status) after its peak under the "Big Cycle" model.
+1. Scenario Deep Dive: The analytical perspective rises from a single enterprise to the industry dimension, focusing on cross-enterprise comparison and cross-cycle analysis. This scenario simulates how analysts piece together a complete industry picture from fragmented information, with data sources covering multiple periods of financial reports, industry research reports, and macroeconomic data.
+2. Capabilities Tested: The task requires the model to not only understand single charts but also synthesize heterogeneous data from multiple documents to identify the underlying logic of industry development (such as cyclical fluctuations and changes in the competitive landscape). The model needs to demonstrate strong cross-document information aggregation capabilities and long-range logical induction capabilities.
+3. Example: The model needs to synthesize macroeconomic video analysis and text descriptions from multiple industry reports to infer the recession characteristics of a core indicator (such as financial center status) after its peak under the "Big Cycle" model.
  <div align="center">
   <img src="Images/Scecnarios-3.png" width="800px" height="540px"/>
   <br />
@@ -109,9 +109,9 @@ Example: The model needs to synthesize macroeconomic video analysis and text des
 ```
   
 ### 4. Financial Risk Sensing (FRS)
-Scenario Deep Dive: This scenario focuses on multidimensional identification of potential downside risk signals, which is key to investment security. FRS is the core scenario in UniFinEval that introduces the dynamic video modality, as real-world risk signals are often hidden in time-variant, unstructured news feeds or analytical videos.
-Capabilities Tested: The model needs to explicitly align dynamic opinions in videos with quantitative data in static reports. This requires the model to handle sequential information, capture changes in market sentiment, and determine how these unstructured cues affect specific financial forecasts (e.g., oil price fluctuations, revenue decline risks).
-Example: Combine text data on the OPEC+ production cut plan with negative assessments of global economic sentiment in an EIA video to analyze why oil price forecasts were downgraded despite the production cuts, identifying implicit macro-recession risks.
+1. Scenario Deep Dive: This scenario focuses on multidimensional identification of potential downside risk signals, which is key to investment security. FRS is the core scenario in UniFinEval that introduces the dynamic video modality, as real-world risk signals are often hidden in time-variant, unstructured news feeds or analytical videos.
+2. Capabilities Tested: The model needs to explicitly align dynamic opinions in videos with quantitative data in static reports. This requires the model to handle sequential information, capture changes in market sentiment, and determine how these unstructured cues affect specific financial forecasts (e.g., oil price fluctuations, revenue decline risks).
+3. Example: Combine text data on the OPEC+ production cut plan with negative assessments of global economic sentiment in an EIA video to analyze why oil price forecasts were downgraded despite the production cuts, identifying implicit macro-recession risks.
  <div align="center">
   <img src="Images/Scenarios-4.jpg" width="740px" height="1000px"/>
   <br />
@@ -123,9 +123,9 @@ Example: Combine text data on the OPEC+ production cut plan with negative assess
 ```
   
 ### 5. Asset Allocation Analysis (AAA)
-Scenario Deep Dive: As the ultimate decision-making stage in the financial workflow, the AAA scenario requires synthesizing analysis results from all preceding stages to formulate executable strategies under multiple real-world constraints (e.g., policy restrictions, risk appetite). This is the task with the most complex input structure and highest information density in the benchmark.
-Capabilities Tested:** The task typically takes the form of multi-turn dialogue, requiring the model to continuously integrate new information, balance risk and return, and maintain consistent decision logic within a high-dimensional information space during the interaction. This directly evaluates whether MLLMs have the potential to assist experts in core investment decision-making.
-Example: Based on a comprehensive understanding of the market volatility background (charts) and central bank funding policies (text), quantitatively calculate the funding injection multiplier and provide specific "overweight" or "underweight" operational recommendations.
+1. Scenario Deep Dive: As the ultimate decision-making stage in the financial workflow, the AAA scenario requires synthesizing analysis results from all preceding stages to formulate executable strategies under multiple real-world constraints (e.g., policy restrictions, risk appetite). This is the task with the most complex input structure and highest information density in the benchmark.
+2. Capabilities Tested:** The task typically takes the form of multi-turn dialogue, requiring the model to continuously integrate new information, balance risk and return, and maintain consistent decision logic within a high-dimensional information space during the interaction. This directly evaluates whether MLLMs have the potential to assist experts in core investment decision-making.
+3. Example: Based on a comprehensive understanding of the market volatility background (charts) and central bank funding policies (text), quantitatively calculate the funding injection multiplier and provide specific "overweight" or "underweight" operational recommendations.
  <div align="center">
   <img src="Images/Scenarios-5.jpg" width="800px" height="540px"/>
   <br />

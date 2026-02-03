@@ -1,14 +1,19 @@
-# UniFinEval: 面向文本、图像和视频的金融多模态模型统一评测基准
-
 <div align="center">
+    <h1>UniFinEval: 面向文本、图像和视频的金融多模态模型统一评测基准</h1>
 
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)
-[![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://anonymous.4open.science/r/anonym4B75)
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey)](LICENSE)
+<!-- 链接和数据 -->
+[![📃Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.22162)
+[![📂Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://anonymous.4open.science/r/anonym4B75)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**[English](README.md) | [简体中文](README_zh-CN.md)**
-
+<!-- 语言切换链接 -->
+[English](README.md) | [简体中文](README_zh-CN.md)
 </div>
+
+ <div align="center">
+  <img src="Images/frame.png" width="900px" height="540px"/>
+  <br />
+  <br /></div>
 
 ---
 
@@ -19,12 +24,13 @@
 - [3. 评测结果 ](#评测结果)
 - [4. 使用指南 ](#使用指南)
 - [5. 联系我们 ](#联系我们)
+- [6. 引用](#引用)
 
 ---
 
 ## 🏆 总览介绍 <a name="总览介绍"></a> 
 
-**UniFinEval** 是首个专为**高信息密度（High-Information-Density, HID）**金融环境设计的统一多模态评测基准，旨在解决现有评测基准与真实金融业务脱节的问题。在真实的金融分析场景中，分析师不仅需要处理海量的研究报告和复杂的图表数据，还需要结合视频资讯进行连续的逻辑推导。为此，UniFinEval 引入了包含**文本、图像（高密度图表/文档）和视频**的全模态输入，构建了一个由 **3,767 个高质量问答对** 组成的数据集。所有数据均由持有 CFA/CPA 证书的金融专家手工构建并进行双盲交叉验证，确保了极高的业务专业性和逻辑严谨性 。
+**UniFinEval** 是首个专为高信息密度金融环境设计的统一多模态评测基准，旨在解决现有评测基准与真实金融业务脱节的问题。在真实的金融分析场景中，分析师不仅需要处理海量的研究报告和复杂的图表数据，还需要结合视频资讯进行连续的逻辑推导。为此，UniFinEval 引入了包含高信息密度文本、图像和视频的全模态输入，构建了一个由 3,767 个高质量问答对 组成的数据集。所有数据均由持有 CFA/CPA 证书的金融专家手工构建并进行盲交叉验证，以确保极高的业务专业性和逻辑严谨性 。
 
 <div align="center">
   <img src="Images/compare.png" width="500px" height="340px"/>
@@ -32,10 +38,10 @@
   <br /></div
 
         
-为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上做出了重要创新。除了标准的**多模态融合**支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了**环境扰动模拟（Environmental Perturbation）**机制。这意味着模型需要应对包括**污渍遮挡 (Stain)**、**透视形变 (Perspective)** 以及**折痕与弯曲 (Crease & Curvature)** 在内的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理（Multi-hop Reasoning），全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力。
+为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上除了标准的多模态融合，支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了环境扰动模拟机制。这意味着模型需要应对真实环境中可能出现的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理，全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力，以下是一个结合三模态解答问题的示例。
 
  <div align="center">
-  <img src="Images/frame.png" width="900px" height="540px"/>
+  <img src="Images/combine-eg.png" width="600px" height="740px"/>
   <br />
   <br /></div>
 
@@ -43,14 +49,21 @@
 
 ## 📈 五大金融场景 <a name="五大金融场景"></a> 
 
-UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到高阶决策制定的五个层级化场景。每个场景都设计了特定的难点，以全面评估 MLLMs 在复杂金融环境中的适应性。
+UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到高阶决策制定的五个层级化场景。每个场景都设计了特定的难点，以全面评估 MLLMs 在复杂金融环境中的适应性，各金融场景下的问题及其数量分布如下所示。
+
+| Financial Scenario | Questions |
+| :--- | :---: |
+| Financial Statement Auditing | 892 |
+| Company Fundamental Reasoning | 926 |
+| Industry Trend Insights | 896 |
+| Financial Risk Sensing | 535 |
+| Asset Allocation Analysis | 518 |
+| **Total (UniFinEval)** | **3767** |
 
 ### 1. 财务报表审计
-* **场景深度解析:**
-    这是金融分析的基础入口，核心目标是在高密度的视觉环境中验证财务信息的准确性与一致性。与传统数据集使用简化图表不同，FSA 场景保留了真实研报的复杂排版、页眉页脚及冗余干扰信息，以此模拟真实的审计环境。
-* **考察能力:** 模型不仅需要进行单点的事实检索，还需要跨越多个页面进行多跳推理（Multi-hop Reasoning），在含有视觉噪声的文档中精准定位并核对关键财务指标，这直接考验了模型在复杂布局下的细粒度感知能力。
-* **示例说明:**
-*在此示例中，模型需要阅读长篇文本并结合复杂的趋势图，定位特定年份“房地产投资增速”进入两位数负增长的具体月份，并进行跨模态的数据验证。*
+场景深度解析:这是金融分析的基础入口，核心目标是在高密度的视觉环境中验证财务信息的准确性与一致性。与传统数据集使用简化图表不同，FSA 场景保留了真实研报的复杂排版、页眉页脚及冗余干扰信息，以此模拟真实的审计环境。
+考察能力: 模型不仅需要进行单点的事实检索，还需要跨越多个页面进行多跳推理（Multi-hop Reasoning），在含有视觉噪声的文档中精准定位并核对关键财务指标，这直接考验了模型在复杂布局下的细粒度感知能力。
+示例说明: 在此示例中，模型需要阅读长篇文本并结合复杂的趋势图，定位特定年份“房地产投资增速”进入两位数负增长的具体月份，并进行跨模态的数据验证。
  <div align="center">
   <img src="Images/Scenarios-1.png" width="700px" height="340px"/>
   <br />
@@ -65,11 +78,9 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 ```
   
 ### 2. 公司基本面推理
-* **场景深度解析:**
-    在完成基础审计后，分析工作进入对企业经营状况和内在价值的深度剖析阶段。该场景侧重于信息对齐与语义同步，模型需要处理来自不同来源（如财报与第三方研报）的异构数据。
-* **考察能力:** 这里的图表不再直接给出答案，而是通过趋势或相对变化传达隐含信息。模型必须从多源文本和图表中提取分散的参数，执行严谨的金融公式计算（如推导 EBITDA 利润率或营收复合增长率），从而区分单纯的信息检索能力与深度的金融逻辑推理能力。
-* **示例说明:**
-*模型需结合视频中披露的市场动态和财报图表中的具体数值，通过多步计算推导出腾讯公司特定季度的营收增速与预测值的差异。*
+场景深度解析: 在完成基础审计后，分析工作进入对企业经营状况和内在价值的深度剖析阶段。该场景侧重于信息对齐与语义同步，模型需要处理来自不同来源（如财报与第三方研报）的异构数据。
+考察能力: 这里的图表不再直接给出答案，而是通过趋势或相对变化传达隐含信息。模型必须从多源文本和图表中提取分散的参数，执行严谨的金融公式计算（如推导 EBITDA 利润率或营收复合增长率），从而区分单纯的信息检索能力与深度的金融逻辑推理能力。
+示例说明: 模型需结合视频中披露的市场动态和财报图表中的具体数值，通过多步计算推导出腾讯公司特定季度的营收增速与预测值的差异。
  <div align="center">
   <img src="Images/Scenarios-2.png" width="700px" height="340px"/>
   <br />
@@ -83,11 +94,9 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 ```
   
 ### 3. 行业趋势洞察 (Industry Trend Insights, ITI)
-* **场景深度解析:**
-    分析视角从单一企业上升至行业维度，关注跨企业对比与跨周期分析。该场景模拟了分析师如何从碎片化的信息中拼凑出行业全貌，数据源涵盖多期财报、行业研报及宏观经济数据。
-* **考察能力:** 任务要求模型不仅能理解单一图表，还要能综合多份文档中的异构数据，识别行业发展的底层逻辑（如周期性波动、竞争格局变化）。模型需要展现出强大的跨文档信息聚合能力和长程逻辑归纳能力。
-* **示例说明:**
- *模型需综合宏观经济视频分析和多份行业研报的文字描述，推断在“大周期”模型下，某一核心指标（如金融中心地位）在顶峰后的衰退特征。*
+场景深度解析: 分析视角从单一企业上升至行业维度，关注跨企业对比与跨周期分析。该场景模拟了分析师如何从碎片化的信息中拼凑出行业全貌，数据源涵盖多期财报、行业研报及宏观经济数据。
+考察能力: 任务要求模型不仅能理解单一图表，还要能综合多份文档中的异构数据，识别行业发展的底层逻辑（如周期性波动、竞争格局变化）。模型需要展现出强大的跨文档信息聚合能力和长程逻辑归纳能力。
+示例说明: 模型需综合宏观经济视频分析和多份行业研报的文字描述，推断在“大周期”模型下，某一核心指标（如金融中心地位）在顶峰后的衰退特征。
  <div align="center">
   <img src="Images/Scecnarios-3.png" width="700px" height="340px"/>
   <br />
@@ -100,11 +109,9 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 ```
   
 ### 4. 金融风险感知 (Financial Risk Sensing, FRS)
-* **场景深度解析:**
-    此场景聚焦于多维度识别潜在的下行风险信号，是保障投资安全的关键环节。FRS 是 UniFinEval 中引入动态视频模态的核心场景，因为现实中的风险信号往往隐藏在时变的、非结构化的新闻资讯或分析视频中。
-    * **考察能力:** 模型需要将视频中专家的动态观点与静态报告中的量化数据进行显式对齐。这要求模型具备处理时序信息的能力，能够捕捉市场情绪的变化，并判断这些非结构化线索如何影响具体的财务预测（如油价波动、营收下滑风险）。
-* **示例说明:**
-*结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。*
+场景深度解析: 此场景聚焦于多维度识别潜在的下行风险信号，是保障投资安全的关键环节。FRS 是 UniFinEval 中引入动态视频模态的核心场景，因为现实中的风险信号往往隐藏在时变的、非结构化的新闻资讯或分析视频中。
+考察能力: 模型需要将视频中专家的动态观点与静态报告中的量化数据进行显式对齐。这要求模型具备处理时序信息的能力，能够捕捉市场情绪的变化，并判断这些非结构化线索如何影响具体的财务预测（如油价波动、营收下滑风险）。
+示例说明: 结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。
  <div align="center">
   <img src="Images/Scenarios-4.jpg" width="540px" height="900px"/>
   <br />
@@ -116,11 +123,9 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 ```
   
 ### 5. 资产配置分析 (Asset Allocation Analysis, AAA)
-* **场景深度解析:**
-    作为金融业务流的终极决策阶段，AAA 场景要求综合前序所有阶段的分析成果，在多重现实约束（如政策限制、风险偏好）下制定可执行的策略。这是本基准中输入结构最复杂、信息密度最高的任务。
-* **考察能力:** 任务通常采用多轮对话形式，要求模型在交互中不断整合新信息，平衡收益与风险，并在高维度的信息空间中保持决策逻辑的一致性。这直接评估了 MLLMs 是否具备辅助专家进行核心投资决策的潜力。
-* **示例说明:**
-*基于对市场波动背景（图表）和央行资金投放政策（文本）的综合理解，量化计算资金投放倍数，并据此给出具体的“高配”或“低配”操作建议。*
+场景深度解析: 作为金融业务流的终极决策阶段，AAA 场景要求综合前序所有阶段的分析成果，在多重现实约束（如政策限制、风险偏好）下制定可执行的策略。这是本基准中输入结构最复杂、信息密度最高的任务。
+考察能力: 任务通常采用多轮对话形式，要求模型在交互中不断整合新信息，平衡收益与风险，并在高维度的信息空间中保持决策逻辑的一致性。这直接评估了 MLLMs 是否具备辅助专家进行核心投资决策的潜力。
+示例说明: 基于对市场波动背景（图表）和央行资金投放政策（文本）的综合理解，量化计算资金投放倍数，并据此给出具体的“高配”或“低配”操作建议。
  <div align="center">
   <img src="Images/Scenarios-5.jpg" width="700px" height="340px"/>
   <br />
@@ -135,11 +140,11 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 
 ## 📊 评测结果 <a name="评测结果"></a> 
 ### 结果分析
-我们选取了 10 个主流 MLLMs 进行评测，包括闭源模型（如 Gemini-3-pro-preview, GPT-5.1）和开源模型（如 Qwen3-VL, InternVL3.5）。实验结果表明，尽管如Gemini-3-pro-preview这样的顶尖模型在总分上取得了 73.8% 的准确率，但与人类专家（91.3%）相比仍存在显著差距，这一差距在不同任务难度上表现出明显的梯度衰减特征：
+我们选取了 10 个主流 MLLMs 进行评测，包括4个闭源模型和6个开源模型，分别在五大场景上Zero-shot与CoT两种评估设置。实验结果表明，尽管如Gemini-3-pro-preview这样的顶尖模型在总分上取得了 73.8% 的准确率，但与人类专家（91.3%）相比仍存在显著差距，这一差距在不同任务难度上表现出明显的梯度衰减特征：
 
-1.  **感知与决策的断层：** 模型在信息感知类任务（如 FSA 和 CFR）上表现较好，能够准确提取图表和文本中的关键信息，与人类差距较小。然而，随着任务复杂度提升至高阶决策（如 AAA），所有模型的性能均出现大幅下滑。在资产配置分析任务中，Gemini-3-pro-preview 仅获得 61.1% 的准确率，远低于专家的 85.2% 。
-2.  **长链路推理的挑战：** 结果揭示了模型在处理高信息密度和多模态融合时的局限性。模型在需要维持长期逻辑一致性和处理复杂约束条件的场景下（如 ITI 和 AAA），难以构建稳定的语义映射，导致决策逻辑的崩塌。
-3.  **视频模态的短板：** 在引入视频信息的 FRS（金融风险感知）任务中，大多数模型未能实现性能突破，暴露了当前 MLLMs 在跨时间维度的逻辑建模能力上仍有不足。
+1.  感知与决策的断层：模型在信息感知类任务（如 FSA 和 CFR）上表现较好，能够准确提取图表和文本中的关键信息，与人类差距较小。然而，随着任务复杂度提升至高阶决策（如 AAA），所有模型的性能均出现大幅下滑。在资产配置分析任务中，Gemini-3-pro-preview 仅获得 61.1% 的准确率，远低于专家的 85.2% 。
+2.  长链路推理的挑战：结果揭示了模型在处理高信息密度和多模态融合时的局限性。模型在需要维持长期逻辑一致性和处理复杂约束条件的场景下（如 ITI 和 AAA），难以构建稳定的语义映射，导致决策逻辑的崩塌。
+3.  视频模态的短板：在引入视频信息的 FRS（金融风险感知）任务中，大多数模型未能实现性能突破，暴露了当前 MLLMs 在跨时间维度的逻辑建模能力上仍有不足。
 
 | Model | FSA<br>Zero-Shot | FSA<br>CoT | CFR<br>Zero-Shot | CFR<br>CoT | ITI<br>Zero-Shot | ITI<br>CoT | FRS<br>Zero-Shot | FRS<br>CoT | AAA<br>Zero-Shot | AAA<br>CoT | Average<br>Zero-Shot | Average<br>CoT |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -157,40 +162,54 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 
 ---
 
+ <div align="center">
+  <img src="Images/result.png" width="540px" height="500px"/>
+  <br />
+  <br /></div>
 
-## 🚀 使用指南 <a name="使用指南"></a> 
 
-### Prerequisites
+## 📋 使用指南 <a name="使用指南"></a>
 
-- Python 3.8 or higher
-- pip package manager
+### 环境准备
 
-### Installation
+* Python 3.8 或更高版本
+* pip 包管理器
 
-1. **Clone the repository**
+---
+
+### 下载与安装
+
+1. **克隆仓库**
+
    ```bash
    git clone https://github.com/your-repo/unifineval.git
    cd unifineval
    ```
 
-2. **Install dependencies**
+2. **安装依赖**
+
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Configure environment variables**
+3. **配置环境变量**
+
    ```bash
    cp env.example .env
-   # Edit .env file with your API keys and configuration
+   # 编辑 .env 文件，填入你的 API Key 和相关配置
    ```
 
-### Basic Usage
+---
 
-1. **Prepare your dataset**
-   - Format your data according to the [Input Format Requirements](evaluate_py/输入格式要求.md)
-   - Supported formats: JSON, JSONL, CSV, Excel (.xlsx/.xls)
+### 基础使用
 
-2. **Run evaluation**
+1. 准备数据集
+
+   * 请按照 [输入格式要求](evaluate_py/输入格式要求.md) 组织你的数据
+   * 支持的数据格式：JSON、JSONL、CSV、Excel（.xlsx / .xls）
+
+2. 运行评测
+
    ```bash
    python -m evaluate_py.main \
        --input_file ./data/your_dataset.json \
@@ -199,45 +218,49 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
        --log_level INFO
    ```
 
-3. **Using shell script (recommended)**
+3. 使用 Shell 脚本（推荐）
+
    ```bash
-   # Edit evaluate.sh to configure your settings
+   # 编辑 evaluate.sh 文件以配置你的评测参数
    bash evaluate.sh
    ```
 
 ---
 
-## 📋 Configuration
+### 配置文件说明
 
-### Environment Variables
+1. 环境变量（Environment Variables）
 
-Create a `.env` file in the project root with the following variables:
+在项目根目录下创建 `.env` 文件，并包含以下变量：
 
 ```bash
-# API Keys for different providers
-api1=your_dashscope_api_key      # Alibaba Cloud DashScope
-api2=your_volces_api_key          # ByteDance Volces
-api3=your_openrouter_api_key      # OpenRouter
-api4=your_siliconflow_api_key     # SiliconFlow
+# 不同模型服务商的 API Key
+api1=your_dashscope_api_key      # 阿里云 DashScope
+api2=your_volces_api_key         # 字节跳动 Volces
+api3=your_openrouter_api_key     # OpenRouter
+api4=your_siliconflow_api_key    # SiliconFlow
 
-# Models to evaluate (comma-separated)
+# 需要评测的模型列表（以英文逗号分隔）
 EVAL_MODELS=model1,model2,model3
 
-# Local inference service configuration (if using local models)
+# 本地推理服务配置（如使用本地模型）
 LOCAL_8000_HOST=localhost
 LOCAL_8000_PORT=8000
 ```
 
-See [env.example](env.example) for a complete template.
+完整模板请参见 [env.example](env.example)。
 
-### Model Configuration
+---
 
-Models are configured in `evaluate_py/config.py`. You can add new models by modifying the `MODEL_DEFINITIONS` dictionary:
+2. 模型配置
+
+模型配置位于 `evaluate_py/config.py` 文件中。
+你可以通过修改 `MODEL_DEFINITIONS` 字典来添加或调整模型配置：
 
 ```python
 MODEL_DEFINITIONS = {
     "your-model-name": {
-        "base_url_key": "dashscope",  # or "volces", "openrouter", etc.
+        "base_url_key": "dashscope",  # 或 "volces"、"openrouter" 等
         "model": "your-model-id",
         "max_tokens": 25000,
         "timeout": 1200,
@@ -247,59 +270,63 @@ MODEL_DEFINITIONS = {
 }
 ```
 
+---
 
-## 📁 Project Structure
+### 项目结构说明
 
 ```
 unifineval/
-├── evaluate_py/              # Core evaluation framework
+├── evaluate_py/              # 核心评测框架
 │   ├── __init__.py
-│   ├── main.py              # Main entry point
-│   ├── config.py            # Configuration management
-│   ├── data_loader.py       # Data loading utilities
-│   ├── evaluator.py         # Core evaluation logic
-│   ├── model_api.py         # Model API integration
-│   ├── judge.py             # Answer judging logic
-│   ├── prompts.py           # Prompt templates
-│   ├── statistics.py        # Statistical analysis
+│   ├── main.py              # 主入口文件
+│   ├── config.py            # 配置管理
+│   ├── data_loader.py       # 数据加载工具
+│   ├── evaluator.py         # 核心评测逻辑
+│   ├── model_api.py         # 模型 API 接口封装
+│   ├── judge.py             # 答案判定逻辑
+│   ├── prompts.py           # Prompt 模板
+│   ├── statistics.py        # 统计分析模块
 │   └── ...
-├── outputs/                 # Evaluation results (auto-generated)
+├── outputs/                 # 评测结果（自动生成）
 │   └── {profile}/
 │       └── {model_name}/
 │           └── *.json
-├── logs/                    # Log files (auto-generated)
-├── env.example             # Environment variable template
-├── requirements.txt        # Python dependencies
-├── README.md               # This file (English)
-├── README_CN.md            # Chinese documentation
-└── evaluate.sh             # Example evaluation script
+├── logs/                    # 日志文件（自动生成）
+├── env.example              # 环境变量模板
+├── requirements.txt         # Python 依赖列表
+├── README.md                # 英文说明文档
+├── README_CN.md             # 中文说明文档
+└── evaluate.sh              # 示例评测脚本
 ```
 
 ---
 
-## 🔧 Advanced Usage
+### 高级用法
 
-### Multi-Round Dialogue Evaluation
+1. 多轮对话评测（Multi-Round Dialogue Evaluation）
 
-The framework automatically detects and handles multi-round dialogues. Ensure your data follows the format:
+该框架可自动识别并处理多轮对话任务。
+请确保你的数据符合以下格式：
 
 ```json
 {
   "question_id": "q001",
   "question": {
-    "round1": "First question...",
-    "round2": "Follow-up question..."
+    "round1": "第一轮问题……",
+    "round2": "后续追问……"
   },
   "answer": {
-    "round1": "First answer...",
-    "round2": "Follow-up answer..."
+    "round1": "第一轮回答……",
+    "round2": "后续回答……"
   }
 }
 ```
 
-### Resume Evaluation
+---
 
-To resume a previous evaluation:
+2. 断点续跑（Resume Evaluation）
+
+如需从上一次未完成的评测中继续运行，可使用 `--resume` 参数：
 
 ```bash
 python -m evaluate_py.main \
@@ -308,33 +335,38 @@ python -m evaluate_py.main \
     --resume
 ```
 
-### Custom Output Format
+---
 
-Results are saved in JSON or JSONL format:
+3. 自定义输出格式
 
-- **JSON**: Single file with all results and statistics
-- **JSONL**: Line-delimited format, one result per line
+评测结果支持以下两种输出格式：
 
-Specify format via output file extension:
+* **JSON**：单个文件，包含所有评测结果和统计信息
+* **JSONL**：按行存储格式，每一行对应一条评测结果
+
+通过输出文件后缀指定格式：
 
 ```bash
---output_file results.json    # JSON format
---output_file results.jsonl   # JSONL format
+--output_file results.json    # JSON 格式
+--output_file results.jsonl   # JSONL 格式
 ```
-
-### Image Handling
-
-The framework supports:
-- Local image paths
-- Image URLs (http/https)
-- Multiple images per question
-- Automatic image compression for token optimization
 
 ---
 
-## 📈 Output Format
+4. 图像处理支持
 
-Evaluation results include:
+该评测框架支持以下图像输入方式：
+
+* 本地图片路径
+* 图片 URL（http / https）
+* 单个问题包含多张图片
+* 自动进行图像压缩以优化 Token 消耗
+
+---
+
+### 输出结果格式说明
+
+评测输出结果示例如下：
 
 ```json
 {
@@ -371,9 +403,9 @@ Evaluation results include:
 
 ---
 
-## 🧪 Testing
+### 测试
 
-Run tests to verify installation:
+运行以下命令以验证环境与安装是否正确：
 
 ```bash
 python -m pytest tests/
@@ -381,33 +413,19 @@ python -m pytest tests/
 
 ---
 
-## 📝 Citation
-
-If you use UniFinEval in your research, please cite:
-
-```bibtex
-@article{unifineval2024,
-  title={UniFinEval: A Unified Evaluation Framework for Financial Vision-Language Models},
-  author={Your Name and Collaborators},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2024}
-}
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
 ## 📫 联系我们 <a name="联系我们"></a>
 诚邀业界同仁共同探索 AI 与金融深度融合的创新范式，共建智慧金融新生态，并通过邮件与zhang.liwen@shufe.edu.cn联系
 
+
+---
+
+## 📝 引用 <a name="引用"></a>
+
+如果您在研究中使用了FinGAIA，请引用我们的论文：
+
+```
+Coming Soon
+
+```
+
+---

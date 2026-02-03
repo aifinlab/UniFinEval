@@ -30,7 +30,7 @@
 
 ## 🏆 Overview <a name="overview"></a> 
 
-**UniFinEval** is the first unified multimodal evaluation benchmark designed specifically for high-information-density financial environments. It aims to bridge the gap between existing benchmarks and real-world financial operations. In actual financial analysis scenarios, analysts must not only process massive amounts of research reports and complex chart data but also combine video news for continuous logical deduction. To this end, UniFinEval introduces full-modality inputs containing information-dense text, images, and video, constructing a dataset of **3,767 high-quality Q&A pairs**. All data was manually constructed and subjected to blind cross-validation by financial experts holding CFA/CPA certificates to ensure extreme professional relevance and logical rigor.
+**UniFinEval** is the first unified multimodal evaluation benchmark designed specifically for high-information-density financial environments. It aims to bridge the gap between existing benchmarks and real-world financial operations. In actual financial analysis scenarios, analysts must not only process massive amounts of research reports and complex chart data but also combine video news for continuous logical deduction. To this end, UniFinEval introduces full-modality inputs containing information-dense text, images, and video, constructing a dataset of 3,767 high-quality Q&A pairs. All data was manually constructed and subjected to blind cross-validation by financial experts holding CFA/CPA certificates to ensure extreme professional relevance and logical rigor.
 
 <div align="center">
   <img src="Images/compare.png" width="500px" height="400px"/>

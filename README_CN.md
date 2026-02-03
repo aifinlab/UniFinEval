@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <!-- 语言切换链接 -->
-[English](README.md) | [简体中文](README_zh-CN.md)
+[English](README.md) | [简体中文](README_CN.md)
 </div>
 
  <div align="center">
@@ -65,7 +65,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 考察能力: 模型不仅需要进行单点的事实检索，还需要跨越多个页面进行多跳推理（Multi-hop Reasoning），在含有视觉噪声的文档中精准定位并核对关键财务指标，这直接考验了模型在复杂布局下的细粒度感知能力。
 示例说明: 在此示例中，模型需要阅读长篇文本并结合复杂的趋势图，定位特定年份“房地产投资增速”进入两位数负增长的具体月份，并进行跨模态的数据验证。
  <div align="center">
-  <img src="Images/Scenarios-1.png" width="700px" height="340px"/>
+  <img src="Images/Scenarios-1.png" width="800px" height="540px"/>
   <br />
   <br /></div>
 
@@ -82,7 +82,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 考察能力: 这里的图表不再直接给出答案，而是通过趋势或相对变化传达隐含信息。模型必须从多源文本和图表中提取分散的参数，执行严谨的金融公式计算（如推导 EBITDA 利润率或营收复合增长率），从而区分单纯的信息检索能力与深度的金融逻辑推理能力。
 示例说明: 模型需结合视频中披露的市场动态和财报图表中的具体数值，通过多步计算推导出腾讯公司特定季度的营收增速与预测值的差异。
  <div align="center">
-  <img src="Images/Scenarios-2.png" width="700px" height="340px"/>
+  <img src="Images/Scenarios-2.png" width="800px" height="540px"/>
   <br />
   <br /></div>
 
@@ -98,7 +98,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 考察能力: 任务要求模型不仅能理解单一图表，还要能综合多份文档中的异构数据，识别行业发展的底层逻辑（如周期性波动、竞争格局变化）。模型需要展现出强大的跨文档信息聚合能力和长程逻辑归纳能力。
 示例说明: 模型需综合宏观经济视频分析和多份行业研报的文字描述，推断在“大周期”模型下，某一核心指标（如金融中心地位）在顶峰后的衰退特征。
  <div align="center">
-  <img src="Images/Scecnarios-3.png" width="700px" height="340px"/>
+  <img src="Images/Scecnarios-3.png" width="800px" height="540px"/>
   <br />
   <br /></div>
 
@@ -113,7 +113,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 考察能力: 模型需要将视频中专家的动态观点与静态报告中的量化数据进行显式对齐。这要求模型具备处理时序信息的能力，能够捕捉市场情绪的变化，并判断这些非结构化线索如何影响具体的财务预测（如油价波动、营收下滑风险）。
 示例说明: 结合 OPEC+ 减产计划的文本数据与 EIA 视频中关于全球经济情绪的负面评估，分析为何在减产背景下油价预测依然被下调，识别隐含的宏观衰退风险。
  <div align="center">
-  <img src="Images/Scenarios-4.jpg" width="540px" height="900px"/>
+  <img src="Images/Scenarios-4.jpg" width="740px" height="1000px"/>
   <br />
   <br /></div>
 
@@ -127,7 +127,7 @@ UniFinEval 依据真实的金融业务流程，构建了从基础信息认知到
 考察能力: 任务通常采用多轮对话形式，要求模型在交互中不断整合新信息，平衡收益与风险，并在高维度的信息空间中保持决策逻辑的一致性。这直接评估了 MLLMs 是否具备辅助专家进行核心投资决策的潜力。
 示例说明: 基于对市场波动背景（图表）和央行资金投放政策（文本）的综合理解，量化计算资金投放倍数，并据此给出具体的“高配”或“低配”操作建议。
  <div align="center">
-  <img src="Images/Scenarios-5.jpg" width="700px" height="340px"/>
+  <img src="Images/Scenarios-5.jpg" width="800px" height="540px"/>
   <br />
   <br /></div>
 
@@ -429,3 +429,4 @@ Coming Soon
 ```
 
 ---
+

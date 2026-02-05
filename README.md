@@ -408,12 +408,7 @@ Run the following command to verify the environment and installation are correct
 python -m pytest tests/
 ```
 
----
 
-## 📫 Contact Us <a name="contact-us"></a>
-We invite industry colleagues to jointly explore innovative paradigms for the deep integration of AI and finance, build a new smart financial ecosystem, and contact us via email at zhang.liwen@shufe.edu.cn.
-
----
 
 ## 📝 Citation <a name="citation"></a>
 

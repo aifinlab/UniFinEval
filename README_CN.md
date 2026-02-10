@@ -41,7 +41,7 @@
 为了全面测试模型在真实物理世界中的适应能力，UniFinEval 在数据模态上除了标准的多模态融合，支持 Text-Image, Text-Video, Image-Video 等多种跨模态组合外，我们还特别引入了环境扰动模拟机制。这意味着模型需要应对真实环境中可能出现的多种视觉干扰，模拟真实文件流转中可能出现的低质量输入情况。这种设计使得 UniFinEval 能够从基础的信息提取到复杂的跨模态多跳推理，全方位地评估模型在噪点和干扰环境下的鲁棒性与决策能力，以下是一个结合三模态解答问题的示例。
 
  <div align="center">
-  <img src="Images/combine-eg.png" width="700px" height="840px"/>
+  <img src="Images/combine.png" width="700px" height="840px"/>
   <br />
   <br /></div>
 
@@ -423,6 +423,7 @@ Coming Soon
 ```
 
 ---
+
 
 
 

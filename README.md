@@ -23,9 +23,8 @@
 - [2. Five Financial Scenarios](#five-financial-scenarios)
 - [3. Evaluation Results](#evaluation-results)
 - [4. User Guide](#user-guide)
-- [5. Contact Us](#contact-us)
-- [6. Citation](#citation)
-
+- [5. Citation](#citation)
+- [6. Acknowledgments](#acknowledgments)
 ---
 
 ## 🏆 Overview <a name="overview"></a> 
@@ -415,8 +414,36 @@ python -m pytest tests/
 If you use UniFinEval in your research, please cite our paper:
 
 ```
-Coming Soon
+@misc{yu2026spidersenseintrinsicrisksensing,
+      title={Spider-Sense: Intrinsic Risk Sensing for Efficient Agent Defense with Hierarchical Adaptive Screening}, 
+      author={Zhenxiong Yu and Zhi Yang and Zhiheng Jin and Shuhe Wang and Heng Zhang and Yanlin Fei and Lingfeng Zeng and Fangqi Lou and Shuo Zhang and Tu Hu and Jingping Liu and Rongze Chen and Xingyu Zhu and Kunyi Wang and Chaofa Yuan and Xin Guo and Zhaowei Liu and Feipeng Zhang and Jie Huang and Huacan Wang and Ronghao Chen and Liwen Zhang},
+      year={2026},
+      eprint={2602.05386},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2602.05386}, 
+}
 
 ```
 
 ---
+## 🙏 Acknowledgments<a name="acknowledgments"></a>
+
+This work was supported by the **AIFin Lab** and the **QuantaAlpha**.
+### About AIFin Lab
+Initiated by Professor Liwen Zhang from Shanghai University of Finance and Economics (SUFE), **AIFin Lab** is deeply rooted in the interdisciplinary fields of **AI + Finance, Statistics, and Data Science**. The team brings together cutting-edge scholars from top institutions such as SUFE, FDU, SEU, CMU, and CUHK. We are dedicated to building a comprehensive "full-link" system covering data, models, benchmarks, and intelligent prompting. We are actively looking for talented students (UG/Master/PhD) and researchers worldwide who are passionate about AI Agent security and financial intelligence to join **AIFin Lab**!
+
+If you are interested in contributing to this project or exploring research collaborations, please send your CV/introduction to:
+📩 **[aifinlab.sufe@gmail.com](mailto:aifinlab.sufe@gmail.com)**
+and CC to:
+📧 **[zhang.liwen@shufe.edu.cn](mailto:zhang.liwen@shufe.edu.cn)**
+
+We look forward to hearing from you!
+
+### About QuantaAlpha
+Founded in April 2025, **QuantaAlpha** is composed of professors, postdoctoral researchers, PhDs, and Master's students from prestigious universities including THU, PKU, CAS, CMU, and HKUST. Our mission is to explore the "Quanta" of intelligence and lead the "Alpha" frontier of agent research—ranging from CodeAgents and self-evolving intelligence to financial and cross-domain specialized agents—dedicated to reshaping the boundaries of artificial intelligence.
+
+In 2026, we will continue to produce high-quality research results in areas such as **CodeAgent** (end-to-end autonomous execution of real-world tasks), **DeepResearch**, **Agentic Reasoning/Agentic RL**, and **Self-Evolution & Collaborative Learning**. We welcome students interested in our research directions to join us!  
+**Team Homepage:** [https://quantaalpha.github.io/](https://quantaalpha.github.io/)
+
+

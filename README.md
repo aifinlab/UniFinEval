@@ -41,7 +41,7 @@
 To comprehensively test model adaptability in the real physical world, UniFinEval goes beyond standard multimodal fusion (supporting Text-Image, Text-Video, Image-Video, etc.) by specifically introducing **environmental perturbation simulation mechanisms**. This means models must cope with various visual interferences that may occur in real environments, simulating low-quality inputs found in real-world document circulation. This design enables UniFinEval to comprehensively evaluate model robustness and decision-making capabilities in noisy and interfering environments, ranging from basic information extraction to complex cross-modal multi-hop reasoning. Below is an example of solving a problem combining three modalities.
 
  <div align="center">
-  <img src="Images/combine-eg.png" width="700px" height="840px"/>
+  <img src="Images/combine.png" width="700px" height="840px"/>
   <br />
   <br /></div>
 

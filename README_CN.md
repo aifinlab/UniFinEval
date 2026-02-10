@@ -418,12 +418,33 @@ python -m pytest tests/
 如果您在研究中使用了UniFinEval，请引用我们的论文：
 
 ```
-Coming Soon
-
+@misc{yang2026unifineval,
+      title={UniFinEval: Towards Unified Evaluation of Financial Multimodal Models across Text, Images and Videos}, 
+      author={Zhi Yang and Lingfeng Zeng and Fangqi Lou and Qi Qi and Wei Zhang and Zhenyu Wu and Zhenxiong Yu and Jun Han and Zhiheng Jin and Lejie Zhang and Xiaoming Huang and Xiaolong Liang and Zheng Wei and Junbo Zou and Dongpo Cheng and Zhaowei Liu and Xin Guo and Rongjunchen Zhang and Liwen Zhang},
+      year={2026},
+      eprint={2601.22162},
+      archivePrefix={arXiv},
+      url={https://arxiv.org/abs/2601.22162}, 
+}
 ```
 
 ---
+## 🙏 致谢与团队 <a name="致谢"></a>
+本工作由 QuantaAlpha 和 AIFin Lab 支持。
 
+关于 AIFin Lab
+AIFin Lab 由上财张立文教授发起，深耕 AI + 金融 / 统计 / 数据科学 交叉领域，团队汇聚上财、复旦、东大、CMU、港中文等校前沿学者，打造数据、模型、评测、智能提示全链路体系。我们诚挚欢迎全球优秀的本科、硕士、博士生以及前沿学者加入 AIFin Lab，共同探索 AI Agent 安全与金融智能的边界！
+
+如果您对此项目感兴趣并希望参与贡献或开展研究合作，请将您的简历/简介发送至： 📩 aifinlab.sufe@gmail.com 并同时抄送 (CC) 至： 📧 zhang.liwen@shufe.edu.cn
+
+期待你的加入！
+
+关于 QuantaAlpha
+QuantaAlpha 成立于 2025 年 4 月，由来自清华、北大、中科院、CMU、港科大等名校的教授、博士后、博士与硕士组成。我们的使命是探索智能的“量子”，引领智能体研究的“阿尔法”前沿——从 CodeAgent 到自进化智能，再到金融与跨领域专用智能体，致力于重塑人工智能的边界。
+
+2026 年，我们将在 CodeAgent （真实世界任务的端到端自主执行）、 DeepResearch 、 Agentic Reasoning/Agentic RL 、自进化与协同学习 等方向持续产出高质量研究成果，欢迎对我们方向感兴趣的同学加入我们！
+
+团队主页： https://quantaalpha.github.io/
 
 
 

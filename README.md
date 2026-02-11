@@ -414,22 +414,20 @@ python -m pytest tests/
 If you use UniFinEval in your research, please cite our paper:
 
 ```
-@misc{yu2026spidersenseintrinsicrisksensing,
-      title={Spider-Sense: Intrinsic Risk Sensing for Efficient Agent Defense with Hierarchical Adaptive Screening}, 
-      author={Zhenxiong Yu and Zhi Yang and Zhiheng Jin and Shuhe Wang and Heng Zhang and Yanlin Fei and Lingfeng Zeng and Fangqi Lou and Shuo Zhang and Tu Hu and Jingping Liu and Rongze Chen and Xingyu Zhu and Kunyi Wang and Chaofa Yuan and Xin Guo and Zhaowei Liu and Feipeng Zhang and Jie Huang and Huacan Wang and Ronghao Chen and Liwen Zhang},
+@misc{yang2026unifineval,
+      title={UniFinEval: Towards Unified Evaluation of Financial Multimodal Models across Text, Images and Videos}, 
+      author={Zhi Yang and Lingfeng Zeng and Fangqi Lou and Qi Qi and Wei Zhang and Zhenyu Wu and Zhenxiong Yu and Jun Han and Zhiheng Jin and Lejie Zhang and Xiaoming Huang and Xiaolong Liang and Zheng Wei and Junbo Zou and Dongpo Cheng and Zhaowei Liu and Xin Guo and Rongjunchen Zhang and Liwen Zhang},
       year={2026},
-      eprint={2602.05386},
+      eprint={2601.22162},
       archivePrefix={arXiv},
-      primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2602.05386}, 
+      url={https://arxiv.org/abs/2601.22162}, 
 }
-
 ```
 
 ---
 ## 🙏 Acknowledgments<a name="acknowledgments"></a>
 
-This work was supported by the **AIFin Lab** and the **QuantaAlpha**.
+This work was supported by the **AIFin Lab** a.
 ### About AIFin Lab
 Initiated by Professor Liwen Zhang from Shanghai University of Finance and Economics (SUFE), **AIFin Lab** is deeply rooted in the interdisciplinary fields of **AI + Finance, Statistics, and Data Science**. The team brings together cutting-edge scholars from top institutions such as SUFE, FDU, SEU, CMU, and CUHK. We are dedicated to building a comprehensive "full-link" system covering data, models, benchmarks, and intelligent prompting. We are actively looking for talented students (UG/Master/PhD) and researchers worldwide who are passionate about AI Agent security and financial intelligence to join **AIFin Lab**!
 

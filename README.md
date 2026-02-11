@@ -440,10 +440,3 @@ and CC to:
 
 We look forward to hearing from you!
 
-### About QuantaAlpha
-Founded in April 2025, **QuantaAlpha** is composed of professors, postdoctoral researchers, PhDs, and Master's students from prestigious universities including THU, PKU, CAS, CMU, and HKUST. Our mission is to explore the "Quanta" of intelligence and lead the "Alpha" frontier of agent research—ranging from CodeAgents and self-evolving intelligence to financial and cross-domain specialized agents—dedicated to reshaping the boundaries of artificial intelligence.
-
-In 2026, we will continue to produce high-quality research results in areas such as **CodeAgent** (end-to-end autonomous execution of real-world tasks), **DeepResearch**, **Agentic Reasoning/Agentic RL**, and **Self-Evolution & Collaborative Learning**. We welcome students interested in our research directions to join us!  
-**Team Homepage:** [https://quantaalpha.github.io/](https://quantaalpha.github.io/)
-
-

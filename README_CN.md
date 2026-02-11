@@ -429,7 +429,7 @@ python -m pytest tests/
 
 ---
 ## 🙏 致谢与团队 <a name="致谢"></a>
-本工作由 **QuantaAlpha** 和 **AIFin Lab** 支持。
+本工作由上海财经大学 **AIFin Lab** 支持。
 
 ### 关于 AIFin Lab
 
@@ -441,13 +441,7 @@ python -m pytest tests/
 
 期待你的加入！
 
-### 关于 QuantaAlpha
 
-**QuantaAlpha** 成立于 2025 年 4 月，由来自清华、北大、中科院、CMU、港科大等名校的教授、博士后、博士与硕士组成。我们的使命是探索智能的“量子”，引领智能体研究的“阿尔法”前沿——从 CodeAgent 到自进化智能，再到金融与跨领域专用智能体，致力于重塑人工智能的边界。
-
-2026 年，我们将在  **CodeAgent** （真实世界任务的端到端自主执行）、 **DeepResearch** 、 **Agentic Reasoning/Agentic RL** 、**自进化与协同学习** 等方向持续产出高质量研究成果，欢迎对我们方向感兴趣的同学加入我们！
-
-**团队主页：** [https://quantaalpha.github.io/](https://quantaalpha.github.io/)
 
 
 
